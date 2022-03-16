@@ -12,7 +12,6 @@ import org.telegram.api.updates.TLUpdates;
 import org.telegram.api.updates.TLUpdatesCombined;
 import org.telegram.api.updates.TLUpdatesState;
 import org.telegram.api.updates.TLUpdatesTooLong;
-import org.telegram.bot.handlers.UpdatesHandlerBase;
 import org.telegram.bot.handlers.interfaces.IUpdatesHandler;
 import org.telegram.bot.services.BotLogger;
 import org.telegram.bot.services.NotificationsService;
@@ -43,7 +42,7 @@ public class MainHandler implements NotificationsService.NotificationObserver {
     private final IUpdatesHandler updatesHandler;
     private final UpdateHandlerThread updateHandlerThread;
 
-    MainHandler(IKernelComm kernelComm, UpdatesHandlerBase updatesHandler) {
+    MainHandler(IKernelComm kernelComm, IUpdatesHandler updatesHandler) {
         NotificationsService.getInstance().addObserver(this, NotificationsService.needGetUpdates);
         this.kernelComm = kernelComm;
         this.updatesHandler = updatesHandler;
